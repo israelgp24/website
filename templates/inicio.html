@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{%load crispy_forms_tags %}
+{%load static%}
+
+{%block head_title %} Bienvenidos |{%endblock%}
+
+<style>
+{%block style%}
+.jumbotron{
+    background-color: #5ad65e !important ;
+    color:#fff !important;}
+{%endblock%}
+</style>
+
+
+{% block jumbotron %}
+
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+<div class="container">   
+<div class='row'>
+     <div class='col-sm-6'>
+        <h1>NoAI</h1>
+        <p>No hay contenido</p>
+        <p>Pero vamos mejorando.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Únete &raquo;</a>
+        </p>
+      
+    </div>
+<div class='col-sm-6' ><iframe width="560" height="315" src="https://www.youtube.com/embed/b3Uc8htIK0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+</div>
+</div>
+</div>
+    
+{% endblock %}
+
+
+{{ titulo }} <br/>
+{{request.user}}
+<hr/>
+<br/>
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-3 col-xs-12 pull-right">
+        
+        {% if not user.is_authenticated %}
+        <p class='lead text-align-center'>Bienvenid@ Subscribete</p>
+    
+        <form method="POST" actions="">{% csrf_token %}
+        {{ form|crispy}}
+        <input class='btn btn-primary' type='submit' value ='Enviar' />
+        </form>
+        {%else%}
+        <p class='lead text-align-center'>{{titulo}}</br>{{request.user}}</p>
+        {%endif%}
+    </div>
+<div class='col-sm-3'>
+    <p class='lead text-align-center'>Windows</p><div align='center'><img src='{%static "img/windows.jpg"%}'  height='100' widght='100'></img></div>
+</div>
+<div class='col-sm-3'>
+    <p class='lead text-align-center'>Linux</p><div align='center'><img src='{%static "img/linux.png"%}' height='100' widght='100'></img></div>
+</div>
+<div class='col-sm-3'>
+    <p class='lead text-align-center'>Mac</p><div align='center'><img src='{%static "img/apple.png"%}' height='100' widght='100'></img></div>
+</div>
+</div>
+<hr/>
+{%endblock%}
+    

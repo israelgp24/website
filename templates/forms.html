@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{{ titulo }}
+
+
+<hr/>
+
+
+
+{%block content %}
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-3'>
+{% if titulo%}
+<h1 class='text-align-center'>{{titulo}}</h1>
+{%endif%}
+<form method="POST" actions="">{% csrf_token %}
+{{ form|crispy}}
+<input class='btn btn-primary' type='submit' value ='Enviar' />
+</form>
+
+</div>
+</div>
+
+{% endblock %}
