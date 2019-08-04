@@ -19,13 +19,6 @@ services:
     volumes:
       - db-test:/var/lib/postgresql/data # Using the declared volume.
 
-  # RabbitMQ.
-  rabbit:
-    volumes:
-      - broker-test:/var/lib/rabbitmq # Using the declared volume.
-    env_file:
-      - .env
-
   # Django web server.
   app:
     image: chatypago_api-app-test
