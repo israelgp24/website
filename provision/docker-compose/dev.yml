@@ -1,0 +1,64 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+
+version: '3'
+services:
+
+  # PostgreSQL database.
+  db:
+    restart: always
+    image: mdillon/postgis:9.6
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=website
+    volumes:
+      - db:/var/lib/postgresql/data # Using the declared volume.
+      - .:/usr/src
+
+  # Django web server.
+  app:
+    image: website-app-dev
+    ports:
+      - "8000:8000"
+      - "8080:5000"
+    environment: &environment
+      - STAGE=local
+      - GUNICORN_HOST=0.0.0.0
+      - GUNICORN_PORT=8000
+      - BROKER_URL=amqp://admin:mypass@rabbit:5672/
+      - C_FORCE_ROOT=TRUE
+      - MEDIA_URL=/media/
+      - STATIC_URL=/static/
+      - DJANGO_DB_URL=postgis://postgres:postgres@db:5432/website
+
+    build:
+      context: .
+      dockerfile: provision/docker/app/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+
+  check:
+    image: website-check-dev
+    environment: *environment
+    build:
+      context: .
+      dockerfile: provision/docker/check/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+
+
+volumes:
+  db:
+  broker:
