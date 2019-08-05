@@ -25,7 +25,7 @@ SECRET_KEY = '76bdh1#q+7o07!dzav2*-smvz)9i2yy5(@08z@c*lxkyz#4$rf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split()
 
 EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_HOST_USER= 'tu_email@gmail.com'
