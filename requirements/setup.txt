@@ -1,0 +1,8 @@
+autopep8
+bumplus==0.0.8
+bumpversion==0.5.3
+docker-compose
+mypy==0.630
+pre-commit>=0.15.2
+pylint==2.1.1
+restview==2.8.1

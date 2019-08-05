@@ -1,20 +1,32 @@
-# WEBSITE
+# Website
 
+This project was created for fun and to understand how you can develop amazing things with Python as a website
 
+## Requirements
 
-pyenv
+Special dependencies , e.g.,
++ [python]
++ [Docker]
++ [Docker Compose]
 
+## Installation or Getting Started
+How to get the project, e.g.,
 
+	git clone git@github.com:israelgp24/website.git
+    make environment
+    pyenv activate website
+    make setup
+    make docker.build service=app
 
-Python
- version=3.6.4
- $ pyenv install 3.6.4
+## Usage
 
-DJango
- version= 2.1.3
+	make django command=migrate
+    make django.runserver    
 
+## Contributors
 
+Israel Gonzales <@israelgp24>
 
-.. code:: bash
+## License
+([MIT](http://opensource.org/licenses/mit-license.php), [Apache](http://opensource.org/licenses/Apache-2.0), etc.)
 
- $ pip install django

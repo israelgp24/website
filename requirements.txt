@@ -1,0 +1,12 @@
+django-crispy-forms>=1.7
+django-registration-redux>=2.0
+
+# Django
+# ------------------------------------------------------------------------------
+Django>=2.0  # Web application framework
+# Django REST Framework
+djangorestframework==3.9.1
+django-environ>=0.4.5  # https://github.com/joke2k/django-environ
+
+
+psycopg2-binary>=2.7.5
