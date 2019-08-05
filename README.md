@@ -13,6 +13,8 @@ Special dependencies , e.g.,
 How to get the project, e.g.,
 
 	git clone git@github.com:israelgp24/website.git
+    make environment
+    pyenv activate website
     make setup
     make docker.build service=app
 
