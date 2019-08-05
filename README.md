@@ -4,14 +4,13 @@ This project was created for fun and to understand how you can develop amazing t
 
 ## Requirements
 
-This section is optional if there isn't any special dependencies. Else a bulletlist will suffice, e.g.,
+Special dependencies , e.g.,
 + [python]
 + [Docker]
 + [Docker Compose]
 
 ## Installation or Getting Started
-
-Provide code examples and explanations of how to get the project, e.g.,
+How to get the project, e.g.,
 
 	git clone git@github.com:israelgp24/website.git
     make setup
@@ -27,6 +26,5 @@ Provide code examples and explanations of how to get the project, e.g.,
 Israel Gonzales <@israelgp24>
 
 ## License
-
-A short snippet describing the license ([MIT](http://opensource.org/licenses/mit-license.php), [Apache](http://opensource.org/licenses/Apache-2.0), etc.)
+([MIT](http://opensource.org/licenses/mit-license.php), [Apache](http://opensource.org/licenses/Apache-2.0), etc.)
 
