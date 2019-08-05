@@ -2,14 +2,10 @@ FROM python:3.6.4
 
 MAINTAINER Israel Gonzales <@israelgp24>
 
-ARG env
+ARG stage
 ARG version
-ARG cache_date
 
-# workaround to break the cache and force reinstall
-ENV CACHE_DATE=$cache_date
-
-LABEL NAME website-app-$env
+LABEL NAME website-app-$stage
 LABEL VERSION $version
 
 COPY ./requirements/ /usr/src/requirements/
@@ -25,6 +21,6 @@ RUN apt-get update -y \
     # bjoern
     libev-dev libevdev2 \
     # install python dependencies
-    && pip install -r /usr/src/requirements/$env.txt \
+    && pip install -r /usr/src/requirements/$stage.txt \
     && apt-get purge \
     && rm -rf /var/lib/apt/lists/*

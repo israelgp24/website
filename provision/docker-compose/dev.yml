@@ -43,7 +43,6 @@ services:
       - .env
     depends_on:
       - db
-      - redis
 
   check:
     image: website-check-dev
